@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Music Player -->
+    <audio id="birthdaySong" loop>
+        <source src="assets/audio/birthday_music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+        <span id="musicText">Play Music</span>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confetti"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title" id="title">Happy Birthday!</h1>
+            <h2 class="subtitle" id="subtitle">Dear <span id="friendName">Friend</span>!</h2>
+        </div>
+
+        <!-- Cake -->
+        <div class="cake-container">
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="icing"></div>
+                <div class="drip drip1"></div>
+                <div class="drip drip2"></div>
+                <div class="drip drip3"></div>
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+            </div>
+            <button class="wish-btn" id="wishBtn">Make a Wish!</button>
+        </div>
+
+
+        <!-- 2x2 Frames Section -->
+        <div class="frames-container">
+            <h3 class="gallery-title">Special Moments</h3>
+            <div class="frames-grid">
+                <!-- Frame 1 -->
+                <div class="frame">
+                    <h4 class="frame-title">Fun Time Together</h4>
+                    <div class="frame-gallery" id="frame1"></div>
+                    <div class="frame-controls">
+                        <button class="frame-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="frame-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Frame 2 -->
+                <div class="frame">
+                    <h4 class="frame-title">Best Friends</h4>
+                    <div class="frame-gallery" id="frame2"></div>
+                    <div class="frame-controls">
+                        <button class="frame-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="frame-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Frame 3 -->
+                <div class="frame">
+                    <h4 class="frame-title">Adventure We Had</h4>
+                    <div class="frame-gallery" id="frame3"></div>
+                    <div class="frame-controls">
+                        <button class="frame-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="frame-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Frame 4 -->
+                <div class="frame">
+                    <h4 class="frame-title">Laughing Together</h4>
+                    <div class="frame-gallery" id="frame4"></div>
+                    <div class="frame-controls">
+                        <button class="frame-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="frame-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message -->
+        <div class="message-container">
+            <h3 class="message-title">A Special Message For You</h3>
+            <div class="message" id="typedMessage"></div>
+            <div class="signature">- Your Best Friend</div>
+        </div>
+
+        <!-- Counter -->
+        <div class="counter-container">
+            <h3 class="counter-title">Celebrating <span id="age">25</span> Years of Awesomeness!</h3>
+            <div class="counter">
+                <div class="counter-box">
+                    <div class="counter-number" id="days">0</div>
+                    <div class="counter-label">Days</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="hours">0</div>
+                    <div class="counter-label">Hours</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="minutes">0</div>
+                    <div class="counter-label">Minutes</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="seconds">0</div>
+                    <div class="counter-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wish Modal -->
+    <div class="modal" id="wishModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2>Your Birthday Wish</h2>
+            <p>Write your wish and it will come true!</p>
+            <textarea id="wishText" placeholder="Type your wish here..."></textarea>
+            <button id="sendWishBtn">Send Wish to the Universe</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
