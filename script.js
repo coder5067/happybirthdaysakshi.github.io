@@ -150,24 +150,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===== TYPEWRITER MESSAGE =====
-    const message = `Happy Birthday to the most amazing friend! 🎉\n\n`
-        + `On your special day, I want you to know how much you mean to me.\n\n`
-        + `Your smile brightens my darkest days, and your laughter is my favorite melody.\n\n`
-        + `May this year bring you endless joy and wonderful adventures! 🥳`;
-    
-    const typedMessage = document.getElementById('typedMessage');
-    let i = 0;
-    
-    function typeWriter() {
-        if (i < message.length) {
-            typedMessage.innerHTML += message.charAt(i) === '\n' ? '<br>' : message.charAt(i);
-            i++;
-            setTimeout(typeWriter, 20);
-        }
-    }
-    
-    setTimeout(typeWriter, 1000);
+const message = `Happy Birthday to the most amazing friend! 🎉\n\n`
+    + `On your special day, I want you to know how much you mean to me.\n\n`
+    + `Your smile brightens my darkest days, and your laughter is my favorite melody.\n\n`
+    + `May this year bring you endless joy and wonderful adventures! 🥳`;
 
+const typedMessage = document.getElementById('typedMessage');
+
+// First set the complete message immediately (as fallback)
+typedMessage.innerHTML = message.replace(/\n/g, '<br>');
+
+// Then attempt the typewriter effect if desired
+let i = 0;
+function typeWriter() {
+    if (i < message.length) {
+        typedMessage.innerHTML = message.substring(0, i+1).replace(/\n/g, '<br>');
+        i++;
+        setTimeout(typeWriter, 20);
+    }
+}
+
+// Clear the message and start typing (optional)
+typedMessage.innerHTML = '';
+setTimeout(typeWriter, 1000);
     // ===== WISH MODAL =====
     const wishModal = document.getElementById('wishModal');
     const wishBtn = document.getElementById('wishBtn');
